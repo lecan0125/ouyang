@@ -190,6 +190,29 @@
             font-style: italic;
         }
 
+        /* Ensure comparison tables and mobile cards use the article serif font */
+        .compare-table, .compare-table th, .compare-table td, .compare-card, .compare-card td {
+            font-family: 'Merriweather', serif;
+            color: #334155;
+            font-size: 1.125rem;
+            line-height: 1.9;
+        }
+        .compare-table th { font-weight: 700; color: #022851; }
+
+        /* Interaction + animation styles for comparison table */
+        .compare-row { cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; }
+        .compare-row:hover, .compare-row:focus { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(2,40,68,0.06); outline: none; }
+        .row-detail td { padding: 0; border: none; }
+        .detail-inner { height: 0; overflow: hidden; opacity: 0; }
+        .detail-inner p { margin: .75rem 0; color: #475569; }
+
+        /* Accessibility focus ring */
+        .compare-row:focus { box-shadow: 0 6px 18px rgba(2,40,68,0.08), 0 0 0 3px rgba(2,40,68,0.06); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .compare-row, .detail-inner { transition: none !important; }
+        }
+
         @media (min-width: 768px) {
             .inline-figure.float-right {
                 float: right;
@@ -245,6 +268,14 @@
             align-items: center;
             justify-content: center;
         }
+
+        /* Gallery Styles */
+        .gallery-container { max-width: 1000px; margin: 0 auto; }
+        .gallery-viewport { min-height: 24rem; display:flex; align-items:center; }
+        .gallery-track { display:flex; will-change: transform; transition: transform 0.5s ease; }
+        .gallery-item { flex: 0 0 100%; display:flex; align-items:center; justify-content:center; padding: 1rem; }
+        .gallery-item img { width: 65%; max-width: 720px; height: auto; max-height: 320px; object-fit: cover; display:block; border-radius:6px; }
+        @media (max-width: 640px) { .gallery-item img { width: 90%; max-height: 200px; } }
     </style>
 </head>
 
@@ -267,7 +298,7 @@
                 </span>
                 Friend
             </h1>
-            <p class="font-sans text-xl md:text-2xl text-slate-600 font-medium max-w-2xl mx-auto mt-8 mb-8">
+            <p class="font-sans text-3xl md:text-4xl text-slate-600 font-medium max-w-2xl mx-auto mt-8 mb-8">
                 How UC Davis is Engineering Social Integration to Break International Student Silos
             </p>
             <div class="flex items-center justify-center space-x-3 mt-4">
@@ -317,6 +348,11 @@
                 explains.
             </p>
             <p class="article-p">
+                "It's just the idea that because you're familiar, you know, and
+                like you share a lot more in common with certain people, you tend to hang out with them more," Narayanan
+                explains.
+            </p>
+            <p class="article-p">
                 Gary Wang, a student leader involved in multiple integration programs, including Summer Start and PAL,
                 describes a more acute form of this withdrawal. He notes that many international students stay within
                 their "comfort zones" or "social silos" because they are "afraid to face new, unfamiliar things". He
@@ -327,8 +363,8 @@
                 Traditional solutions, specifically the standard university orientation, have proven insufficient to
                 crack these silos. Notehelfer describes traditional orientation as a "fire hose of information" where students
                 are overwhelmed by events and layers of cultural nuance they cannot yet navigate. Wang critiques these
-                events as lacking depth, noting that orientation often results only in "hi-bye friends"—relationships
-                that never develop beyond a polite greeting because the interaction is fleeting.
+                events as lacking depth, noting that orientation often results only in "hi-bye friends"relationships, which
+                never develop beyond a polite greeting because the interaction is fleeting.
             </p>
         </div>
 
@@ -364,9 +400,12 @@
             </p>
             <p class="article-p">
                 The first shift is temporal. Notehelfer argues that orientation models are moving away from being
-                "bookends"—where support only exists at the start and end of college—toward a "waterfall" or "drip"
-                model. "Can we move to a model where we're providing things throughout the first quarter where there's
-                more touch points?" she asks.
+                "bookends", where support only exists at the start and end of college, toward a "waterfall" or "drip"
+                model. 
+            </p>
+            <p class="article-p">
+               "Can we move to a model where we're providing things throughout the first quarter where there's
+                more touch points?" Notehelfer asks.
             </p>
             <p class="article-p">
                 Programs like Summer Start and GAMP operationalize this theory. Wang identifies the "Summer Start" model
@@ -378,7 +417,10 @@
                 The second shift is in activity design. The goal is to move from passive listening to active <span
                     class="highlight-marker font-bold text-uc-blue">"shared memories."</span> Wang emphasizes that deep
                 relationships are built on shared experiences, citing activities from Summer Start like rafting, where
-                "we all fell into the water". He explains, "You have a lot of memories built on top of that... even if
+                "we all fell into the water". 
+            </p>
+            <p class="article-p">
+                Wang explains, "You have a lot of memories built on top of that... even if
                 I'm not familiar with this person, we took the same boat".
             </p>
             <p class="article-p">
@@ -500,7 +542,9 @@
             </p>
             <p class="article-p">
                 "It was so much easier talking to my peers sometimes because they would get what I'm going through,"
-                Narayanan explains. She notes the use of "pop culture references" and shared life stages in
+                Narayanan explains. 
+            <p class="article-p">
+                She notes the use of "pop culture references" and shared life stages in
                 establishing immediate rapport, something that is harder to achieve with higher-level administrators.
             </p>
             <p class="article-p">
@@ -512,14 +556,15 @@
             <p class="article-p">
                 Notehelfer details that this training covers "cultural dimensions and cultural values, identity work, conflict
                 and work styles," and includes role-playing and critical reflection. Narayanan adds that the most
-                "astronomically useful" skill taught is time management and the "art of patience"—learning to navigate
-                communication gaps without taking silence personally.
+                "astronomically useful" skill taught is time management and learning to navigate communication gaps without taking silence personally, 
+                which also called the "art of patience."
+                
             </p>
             <p class="article-p">
                 Finally, the programs use specific matching mechanisms to engineer connections. While GAMP allows
                 mentees to prioritize preferences like major, hobbies, or gender, Wang points out that the PAL program
                 (Partners in Learning) often achieves higher success rates by matching based on specific, shared
-                interests—such as a student wanting to learn Spanish being paired with a Mexican student wanting to
+                interests, such as a student wanting to learn Spanish being paired with a Mexican student wanting to
                 learn about Taiwan. He notes that the PAL program also benefits from a "structured enforcement"
                 mechanism: it is a credit-bearing class that requires weekly meetings. "If you don't meet, your points
                 will be deducted," Wang notes.
@@ -569,7 +614,7 @@
             </p>
             <p class="article-p">
                 Qualitatively, success is defined by interactions that occur outside the structured boundaries of the
-                programs—what Narayanan calls <span class="highlight-marker">"conscious choices"</span>. The most
+                programs, what Narayanan calls <span class="highlight-marker">"conscious choices"</span>. The most
                 compelling evidence of genuine connection comes when relationships outlast the program's mandate.
                 Narayanan shares a pivotal moment when she and her mentees, who were exchange students preparing to leave,
                 decided to travel together. "We all planned a trip to New York... technically after the program had
@@ -598,6 +643,48 @@
             <div class="separator-line right"></div>
         </div>
 
+        <!-- GALLERY: Sliding Photo Gallery between Part IV and Part V -->
+        <section class="py-16 px-6 md:px-12 bg-white">
+            <div class="max-w-5xl mx-auto">
+                <h3 class="article-h3 text-center">Photo Gallery</h3>
+                <p class="text-center text-sm text-slate-500 mb-6">A sliding gallery highlighting program moments.</p>
+
+                <div class="relative gallery-container">
+                    <div class="overflow-hidden rounded-lg shadow-lg gallery-viewport">
+                        <div class="gallery-track">
+                            <div class="gallery-item">
+                                <img src="S1.png" alt="Gallery 1">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="S2.png" alt="Gallery 2">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="s3.jpg" alt="Gallery 3">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="s4.jpeg" alt="Gallery 4">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="S5.png" alt="Gallery 5">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <button class="gallery-prev absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-uc-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button class="gallery-next absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-uc-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- PART V -->
         <div class="article-block">
             <span class="section-tag">Part V: Limitations</span>
@@ -624,8 +711,7 @@
             <p class="article-p">
                 This issue is compounded by low financial incentives for student leaders. Wang candidly describes the
                 GAMP stipend as resembling "cheap labor," because GAMP requires each mentor to maintain 40 hours of
-                contact with their mentees, calculating that the $250 stipend for a semester amounts to roughly <span
-                    class="highlight-marker">$6 per hour</span>. He argues that "unless this mentor is really
+                contact with their mentees, calculating that the $250 stipend for a semester amounts to roughly $6 per hour. He argues that "unless this mentor is really
                 passionate," there is little incentive to persist when faced with an unresponsive mentee.
             </p>
             <p class="article-p">
@@ -657,7 +743,99 @@
 
         <!-- PART VI -->
         <div class="article-block">
-            <span class="section-tag">Part VI: Conclusion</span>
+            <span class="section-tag">Part VI: Comparison</span>
+            <h3 class="article-h3 mt-2">Comparison: Traditional vs Proposed Programs</h3>
+            <p class="article-p">A concise comparison of trade-offs between typical ad-hoc approaches ("Traditional") and the programs described in this article.</p>
+
+            <div class="mt-4">
+                <div class="overflow-x-auto">
+                    <div class="mx-auto max-w-3xl">
+                        <table class="compare-table w-full text-left border-collapse bg-white rounded-md shadow-sm" aria-label="Comparison: Traditional vs Summer Start / GAMP / PAL">
+                            <thead class="bg-uc-blue/10">
+                                <tr>
+                                    <th class="border-b py-3 pr-6">Dimension</th>
+                                    <th class="border-b py-3 pr-6">Traditional</th>
+                                    <th class="border-b py-3 pr-6">Summer Start</th>
+                                    <th class="border-b py-3 pr-6">GAMP</th>
+                                    <th class="border-b py-3 pr-6">PAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="compare-row even:bg-slate-50" tabindex="0" role="button" aria-expanded="false">
+                                    <td class="py-3 pr-6">Target</td>
+                                    <td class="py-3 pr-6">Scattered individuals / passive outreach</td>
+                                    <td class="py-3 pr-6">All incoming students or cohorts</td>
+                                    <td class="py-3 pr-6">Academic mentors and mentees</td>
+                                    <td class="py-3 pr-6">Course-based small peer groups</td>
+                                </tr>
+                                <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>Traditional efforts often miss students who aren’t actively seeking help. Programmatic approaches reach cohorts more reliably and create shared experiences that scale better.</p></div></td></tr>
+
+                                <tr class="compare-row">
+                                    <td class="py-3 pr-6">Format</td>
+                                    <td class="py-3 pr-6">Ad hoc events, occasional advising</td>
+                                    <td class="py-3 pr-6">Residential, intensive engagement</td>
+                                    <td class="py-3 pr-6">Peer mentorship, semester-long</td>
+                                    <td class="py-3 pr-6">Mandatory component within a course</td>
+                                </tr>
+                                <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>One-off activities lack continuity; Summer Start’s residential model fosters continuous interaction that builds stronger bonds over time.</p></div></td></tr>
+
+                                <tr class="compare-row even:bg-slate-50">
+                                    <td class="py-3 pr-6">Cost</td>
+                                    <td class="py-3 pr-6">Low (but limited effect)</td>
+                                    <td class="py-3 pr-6">High (tuition or dedicated funds)</td>
+                                    <td class="py-3 pr-6">Moderate (program budget limited)</td>
+                                    <td class="py-3 pr-6">Low (institution-supported)</td>
+                                </tr>
+                                <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>Higher-cost programs can provide more resources and sustained interventions; cheaper approaches are easier to scale but often less effective.</p></div></td></tr>
+
+                                <tr class="compare-row">
+                                    <td class="py-3 pr-6">Intensity</td>
+                                    <td class="py-3 pr-6">Low (sporadic engagement)</td>
+                                    <td class="py-3 pr-6">High (continuous activities)</td>
+                                    <td class="py-3 pr-6">Medium (regular contact)</td>
+                                    <td class="py-3 pr-6">Variable (depends on course schedule)</td>
+                                </tr>
+                                <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>Intensity correlates with bonding: sustained, frequent interaction produces stronger social ties but requires more coordination and resources.</p></div></td></tr>
+
+                                <tr class="compare-row even:bg-slate-50">
+                                    <td class="py-3 pr-6">Strengths</td>
+                                    <td class="py-3 pr-6">Low cost, flexible</td>
+                                    <td class="py-3 pr-6">Strong cohort bonding, sustained outcomes</td>
+                                    <td class="py-3 pr-6">Structured peer support and guidance</td>
+                                    <td class="py-3 pr-6">High compliance via graded structure</td>
+                                </tr>
+                                <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>Programs emphasize different strengths: Summer Start (cohort cohesion), GAMP (peer support), PAL (high participation via curriculum integration).</p></div></td></tr>
+
+                                <tr class="compare-row">
+                                    <td class="py-3 pr-6">Limitations</td>
+                                    <td class="py-3 pr-6">Inconsistent impact; overshadowed by information overload</td>
+                                    <td class="py-3 pr-6">Expensive and selective</td>
+                                    <td class="py-3 pr-6">Budget and sustainability constraints</td>
+                                    <td class="py-3 pr-6">May be perceived as coercive by students</td>
+                                </tr>
+                                <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>All approaches have trade-offs—cost, scale, and student perception vary; choosing an approach depends on institutional goals and resources.</p></div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIVIDER: between comparison and Part VI -->
+        <div class="section-separator">
+            <div class="separator-line"></div>
+            <div class="separator-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="#022851" stroke-width="1.6" fill="none"></circle>
+                    <path d="M8.2 12.3l2.1 2.3 5.0-5.6" stroke="#022851" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+            </div>
+            <div class="separator-line right"></div>
+        </div>
+
+        <!-- PART VII -->
+        <div class="article-block">
+            <span class="section-tag">Part VII: Conclusion</span>
             <h3 class="article-h3 mt-2">A Systemic Blueprint for Belonging</h3>
 
             <!-- IMAGE: PART VI -->
@@ -679,8 +857,8 @@
             <p class="article-p">
                 Wang’s ultimate advice is to prioritize group dynamics over one-on-one pressure. He ranks the
                 effectiveness of programs with Summer Start at the top, arguing that the "collective atmosphere" and
-                high-frequency interaction of living and doing things together—like "falling into the water"
-                together—creates the strongest foundation for lasting friendship.
+                high-frequency interaction of living and doing things together, such as "falling into the water"
+                together, creates the strongest foundation for lasting friendship.
             </p>
             <p class="article-p">
                 Ultimately, the solution to social isolation lies in creating structures that make connection
@@ -717,6 +895,36 @@
             tl.to(sep, { opacity: 1, duration: 0.1 })
                 .from(icon, { scale: 0, rotation: 180, ease: "back.out(2)", duration: 0.6 })
                 .from(lines, { scaleX: 0, transformOrigin: "center", duration: 0.6, ease: "power2.out" }, "-=0.4");
+        });
+
+        // small table entrance animation + interactive rows
+        gsap.from('.compare-table', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: '.compare-table', start: 'top 85%' }
+        });
+
+        // expand/collapse row details with keyboard support
+        function toggleDetail(row, inner) {
+            const shown = row.getAttribute('aria-expanded') === 'true';
+            if (shown) {
+                row.setAttribute('aria-expanded', 'false');
+                gsap.to(inner, { height: 0, opacity: 0, duration: 0.28, ease: 'power1.out', onComplete: () => { inner.style.display = 'none'; } });
+            } else {
+                row.setAttribute('aria-expanded', 'true');
+                inner.style.display = 'block';
+                const h = inner.scrollHeight;
+                gsap.fromTo(inner, { height: 0, opacity: 0 }, { height: h, opacity: 1, duration: 0.32, ease: 'power1.out', onComplete: () => { inner.style.height = 'auto'; } });
+            }
+        }
+
+        document.querySelectorAll('.compare-row').forEach(row => {
+            const inner = row.nextElementSibling?.querySelector('.detail-inner');
+            if (!inner) return;
+            row.addEventListener('click', () => toggleDetail(row, inner));
+            row.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleDetail(row, inner); } });
         });
 
         // --- 2. ARTICLE BLOCK ANIMATION (STAGGERED CONTENT) ---
@@ -901,6 +1109,39 @@
             const target = document.getElementById(targetId);
             if (target) target.classList.add('active');
         }
+
+        // --- PHOTO GALLERY LOGIC ---
+        (function() {
+            const track = document.querySelector('.gallery-track');
+            const items = document.querySelectorAll('.gallery-item');
+            const prev = document.querySelector('.gallery-prev');
+            const next = document.querySelector('.gallery-next');
+            if (!track || items.length === 0) return;
+
+            let index = 0;
+            const total = items.length;
+            function goTo(i) {
+                index = (i + total) % total;
+                const width = items[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(${-index * width}px)`;
+            }
+
+            let autoplay = setInterval(() => goTo(index + 1), 4000);
+
+            function resetAutoplay() {
+                clearInterval(autoplay);
+                autoplay = setInterval(() => goTo(index + 1), 4000);
+            }
+
+            next && next.addEventListener('click', () => { goTo(index + 1); resetAutoplay(); });
+            prev && prev.addEventListener('click', () => { goTo(index - 1); resetAutoplay(); });
+
+            // Resize handling to keep transform accurate
+            window.addEventListener('resize', () => goTo(index));
+
+            // Initialize
+            goTo(0);
+        })();
     </script>
 </body>
 

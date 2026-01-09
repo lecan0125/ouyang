@@ -190,14 +190,24 @@
             font-style: italic;
         }
 
-        /* Ensure comparison tables and mobile cards use the article serif font */
+        /* Ensure comparison tables and mobile cards use the article serif font (compact) */
         .compare-table, .compare-table th, .compare-table td, .compare-card, .compare-card td {
             font-family: 'Merriweather', serif;
             color: #334155;
-            font-size: 1.125rem;
-            line-height: 1.9;
+            font-size: 0.95rem; /* slightly smaller */
+            line-height: 1.45; /* tighter for compactness */
         }
         .compare-table th { font-weight: 700; color: #022851; }
+        /* Force a compact, fixed layout so the table fits the container without horizontal scroll */
+        .compare-table { table-layout: fixed; width: 100%; }
+        .compare-table th:first-child { width: 22%; }
+        .compare-table th:not(:first-child) { width: 19.5%; }
+        /* Enforce wrapping and tighter padding */
+        .compare-table th, .compare-table td {
+            padding: 0.35rem 0.5rem; /* compact padding */
+            white-space: normal;
+            word-break: break-word;
+        }
 
         /* Interaction + animation styles for comparison table */
         .compare-row { cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; }
@@ -789,12 +799,12 @@
 
             <div class="mt-4">
                 <div class="overflow-x-auto">
-                    <div class="mx-auto max-w-3xl">
+                        <div class="mx-auto max-w-2xl">
                         <table class="compare-table w-full text-left border-collapse bg-white rounded-md shadow-sm" aria-label="Comparison: Traditional vs Summer Start / GAMP / PAL">
                             <thead class="bg-uc-blue/10">
                                 <tr>
                                     <th class="border-b py-3 pr-6">Dimension</th>
-                                    <th class="border-b py-3 pr-6">Traditional</th>
+                                    <th class="border-b py-3 pr-6">Traditional Orientation</th>
                                     <th class="border-b py-3 pr-6">Summer Start</th>
                                     <th class="border-b py-3 pr-6">GAMP</th>
                                     <th class="border-b py-3 pr-6">PAL (with class) </th>
@@ -803,54 +813,47 @@
                             <tbody>
                                 <tr class="compare-row even:bg-slate-50" tabindex="0" role="button" aria-expanded="false">
                                     <td class="py-3 pr-6">Target</td>
-                                    <td class="py-3 pr-6">Scattered individuals / passive outreach</td>
                                     <td class="py-3 pr-6">All incoming students or cohorts</td>
-                                    <td class="py-3 pr-6">Academic mentors and mentees</td>
-                                    <td class="py-3 pr-6">Course-based small peer groups </td>
+                                    <td class="py-3 pr-6">first year undergraduate international students</td>
+                                    <td class="py-3 pr-6">first year undergraduate international students</td>
+                                    <td class="py-3 pr-6">all undergraduate students</td>
                                 </tr>
                                 <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>Traditional efforts often miss students who aren’t actively seeking help. Programmatic approaches reach cohorts more reliably and create shared experiences that scale better.</p></div></td></tr>
 
                                 <tr class="compare-row">
                                     <td class="py-3 pr-6">Format</td>
-                                    <td class="py-3 pr-6">Ad hoc events, occasional advising</td>
+                                    <td class="py-3 pr-6">Organized, large-scale, and high-intensity</td>
                                     <td class="py-3 pr-6">Residential, intensive engagement</td>
                                     <td class="py-3 pr-6">Peer mentorship, semester-long</td>
                                     <td class="py-3 pr-6">Mandatory component within a course</td>
                                 </tr>
                                 <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>One-off activities lack continuity; Summer Start’s residential model fosters continuous interaction that builds stronger bonds over time.</p></div></td></tr>
 
-                                <tr class="compare-row even:bg-slate-50">
-                                    <td class="py-3 pr-6">Cost</td>
-                                    <td class="py-3 pr-6">Low (but limited effect)</td>
-                                    <td class="py-3 pr-6">High (tuition or dedicated funds)</td>
-                                    <td class="py-3 pr-6">Moderate (program budget limited)</td>
-                                    <td class="py-3 pr-6">Low (institution-supported)</td>
-                                </tr>
-                                <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>Higher-cost programs can provide more resources and sustained interventions; cheaper approaches are easier to scale but often less effective.</p></div></td></tr>
+                    
 
                                 <tr class="compare-row">
                                     <td class="py-3 pr-6">Intensity</td>
-                                    <td class="py-3 pr-6">Low (sporadic engagement)</td>
+                                    <td class="py-3 pr-6">High (in short time )</td>
                                     <td class="py-3 pr-6">High (continuous activities)</td>
-                                    <td class="py-3 pr-6">Medium (regular contact)</td>
-                                    <td class="py-3 pr-6">Variable (depends on course schedule)</td>
+                                    <td class="py-3 pr-6">High (regular contact)</td>
+                                    <td class="py-3 pr-6">Variable </td>
                                 </tr>
                                 <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>Intensity correlates with bonding: sustained, frequent interaction produces stronger social ties but requires more coordination and resources.</p></div></td></tr>
 
                                 <tr class="compare-row even:bg-slate-50">
                                     <td class="py-3 pr-6">Strengths</td>
-                                    <td class="py-3 pr-6">Low cost, flexible</td>
+                                    <td class="py-3 pr-6">Comprehensive, high intensity</td>
                                     <td class="py-3 pr-6">Strong cohort bonding, sustained outcomes</td>
                                     <td class="py-3 pr-6">Structured peer support and guidance</td>
-                                    <td class="py-3 pr-6">High compliance via graded structure</td>
+                                    <td class="py-3 pr-6">Matching mechanism has a high degree of freedom.</td>
                                 </tr>
                                 <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>Programs emphasize different strengths: Summer Start (cohort cohesion), GAMP (peer support), PAL (high participation via curriculum integration).</p></div></td></tr>
 
                                 <tr class="compare-row">
                                     <td class="py-3 pr-6">Limitations</td>
-                                    <td class="py-3 pr-6">Inconsistent impact; overshadowed by information overload</td>
-                                    <td class="py-3 pr-6">Expensive and selective</td>
-                                    <td class="py-3 pr-6">Budget and sustainability constraints</td>
+                                    <td class="py-3 pr-6">Overwhelming but lacks depth. Fails to establish genuine connections.</td>
+                                    <td class="py-3 pr-6">Expensive and need extra time</td>
+                                    <td class="py-3 pr-6">Budget and overly "understanding"</td>
                                     <td class="py-3 pr-6">May be perceived as coercive by students</td>
                                 </tr>
                                 <tr class="row-detail"><td colspan="5"><div class="detail-inner"><p>All approaches have trade-offs—cost, scale, and student perception vary; choosing an approach depends on institutional goals and resources.</p></div></td></tr>
